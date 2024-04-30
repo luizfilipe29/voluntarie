@@ -5,6 +5,8 @@ import com.se.voluntarie.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,5 +27,12 @@ public class UserService {
     public List<UserDto> findAll() {
         List<UserModel> userModelList = userRepository.findAll();
         return userModelList.stream().map(UserDto::new).collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public UserDto findById(UUID userId) {
+        Optional<UserModel> userDtoOptional = userRepository.findById(userId);
+        UserModel entity = userDtoOptional.get();
+        return new UserDto(entity);
     }
 }
