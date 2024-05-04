@@ -1,8 +1,13 @@
 package com.se.voluntarie.models;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.UUID;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "tb_users")
 public class UserModel implements Serializable {
@@ -20,28 +25,5 @@ public class UserModel implements Serializable {
         this.name = name;
         this.email = email;
     }
-
-    public UUID getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(UUID idUser) {
-        this.idUser = idUser;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    
 }

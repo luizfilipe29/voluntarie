@@ -36,4 +36,10 @@ public class UserController {
     public ResponseEntity<UserDto> findById(@PathVariable UUID id) {
         return ResponseEntity.ok().body(userService.findById(id));
     }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<UserDto> updateUser(@PathVariable UUID id, @RequestBody @Valid UserDto userDto) {
+        return ResponseEntity.ok().body(userService.updateUser(id, userDto));
+    }
+
 }
