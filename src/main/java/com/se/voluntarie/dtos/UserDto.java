@@ -3,21 +3,20 @@ import com.se.voluntarie.models.UserModel;
 import lombok.Getter;
 import lombok.Setter;
 import java.io.Serializable;
-import java.util.UUID;
 
 @Getter
 @Setter
 public class UserDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private UUID idUser;
+    private Long idUser;
     private String name;
     private String email;
 
 
     public UserDto() {}
 
-    public UserDto(UUID idUser, String name, String email) {
+    public UserDto(Long idUser, String name, String email) {
         this.idUser = idUser;
         this.name = name;
         this.email = email;
