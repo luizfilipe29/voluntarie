@@ -1,4 +1,5 @@
 package com.se.voluntarie.models;
+import com.se.voluntarie.dtos.UserDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,4 +21,10 @@ public class UserModel implements Serializable {
     private String name;
     private String email;
     private String password;
+
+    public UserModel(UserDto userDto) {
+        this.name = userDto.getName();
+        this.email = userDto.getEmail();
+        this.password = userDto.getPassword();
+    }
 }
